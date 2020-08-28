@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/nabeelaArts/precache-manifest.65c35e454423af864f5f0458c4d5ffd3.js"
+  "/nabeelaArts/precache-manifest.c727cd8fcd8461ae3965306ae370f0a6.js"
 );
 
 self.addEventListener('message', (event) => {
