@@ -8,3 +8,12 @@ export const api_login = async (body) => {
       body: JSON.stringify(body),
     });
   };
+
+  export const api_refresh_token = async (token) => {
+    return await fetch(baseURL + "/refresh-token", {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + token,
+      },
+    });
+  };
