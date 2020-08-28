@@ -1,9 +1,10 @@
-import React from 'react'
+import React from "react";
+import SignIn from "./SignIn";
 
 export default function Admin() {
-    return (
-        <div>
-            Admin Panel
-        </div>
-    )
+  return (
+    <div>
+      <SignIn />
+    </div>
+  );
 }

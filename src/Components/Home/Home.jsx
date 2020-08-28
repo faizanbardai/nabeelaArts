@@ -1,12 +1,12 @@
 import React from 'react'
 import Artist from './Artist'
-import Gallery from './Gallery'
+import GallerySection from './GallerySection'
 
 export default function Home() {
     return (
         <div>
             <Artist />
-            <Gallery />
+            <GallerySection />
         </div>
     )
 }

@@ -1,5 +1,4 @@
 import React from "react";
-
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./Home/Home";
 import Admin from "./Admin/Admin";
@@ -7,10 +6,14 @@ import Admin from "./Admin/Admin";
 export default function Main() {
   return (
     <div>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Switch>
-          <Route path="/admin" exact component={Admin} />
-          <Route path="/" component={Home} />
+          <Route path="/admin">
+            <Admin />
+          </Route>
+          <Route path="/" exact>
+            <Home />
+          </Route>
         </Switch>
       </Router>
     </div>
