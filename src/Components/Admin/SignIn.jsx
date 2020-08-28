@@ -61,7 +61,7 @@ export default function SignIn(props) {
         // OK
         const token = await response.json();
         localStorage.setItem("token", token.token);
-        // props.setAuthorized();
+        props.setIsAuthorized(true);
         break;
       case 401:
         // unauthorized
