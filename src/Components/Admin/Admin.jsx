@@ -29,7 +29,7 @@ export default function Admin() {
         case 401:
           // unauthorized
           localStorage.removeItem("token");
-          alert("Unauthorized!");
+          alert("Unauthorized or token expired");
           break;
         default:
           console.log("Some error");
