@@ -1,20 +1,17 @@
 import React, { useEffect } from "react";
 import SignIn from "./SignIn";
-import { useState } from "react";
 import AdminPanel from "./AdminPanel";
 import { api_refresh_token } from "../../Services";
 
-export default function Admin() {
-  const [isAuthorized, setIsAuthorized] = useState(false);
+export default function Admin(props) {
+  const { isLoggedIn, setIsLoggedIn } = props;
 
   useEffect(() => {
     checkTokenStatus();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const logout = () => {
-    localStorage.removeItem("token");
-    setIsAuthorized(false);
-  };
+
 
   const checkTokenStatus = async () => {
     if (localStorage.getItem("token")) {
@@ -24,7 +21,7 @@ export default function Admin() {
           // OK
           const newToken = await response.json();
           localStorage.setItem("token", newToken.token);
-          setIsAuthorized(true);
+          setIsLoggedIn(true);
           break;
         case 401:
           // unauthorized
@@ -39,10 +36,10 @@ export default function Admin() {
 
   return (
     <div>
-      {isAuthorized ? (
-        <AdminPanel logout={logout} />
+      {isLoggedIn ? (
+        <AdminPanel />
       ) : (
-        <SignIn setIsAuthorized={setIsAuthorized} />
+        <SignIn setIsLoggedIn={setIsLoggedIn} />
       )}
     </div>
   );
